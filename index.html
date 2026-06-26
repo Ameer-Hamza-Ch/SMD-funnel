@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Moster SMD – SMD-Bestückung & Leiterplattenfertigung Made in Germany</title>
     <meta name="description" content="Hochpräzise SMD-Bestückung, Leiterplattenfertigung und Technologieberatung. Vom Prototyp bis zur Serienproduktion. 600 m² ESD-geschützte Anlage in Niefern, Baden-Württemberg. Angebot innerhalb von 24 Stunden." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
@@ -144,18 +144,19 @@
             height: 64px;
             max-width: 1120px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 16px;
         }
         .nav-logo {
             display: flex;
             align-items: center;
             font-family: 'Sora', sans-serif;
             font-weight: 800;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--white);
+            flex-shrink: 0;
         }
         .nav-logo img {
-            height: 32px;
+            height: 28px;
             width: auto;
             display: block;
             filter: brightness(0) invert(1);
@@ -166,48 +167,47 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             flex: 1;
             justify-content: flex-end;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            padding: 5px 12px;
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--muted);
-            transition: var(--transition);
-        }
-        .lang-btn:hover {
-            border-color: var(--blue);
-            color: var(--blue);
-        }
-        .lang-btn.active {
-            background: var(--blue);
-            color: #fff;
-            border-color: var(--blue);
         }
         .nav-cta {
             background: var(--blue);
             color: #fff;
-            padding: 9px 20px;
+            padding: 8px 16px;
             border-radius: var(--radius-md);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             border: none;
             transition: background var(--transition);
             display: inline-block;
             cursor: pointer;
+            white-space: nowrap;
         }
         .nav-cta:hover {
             background: var(--blue-dark);
         }
+        @media (max-width: 480px) {
+            .nav-inner {
+                padding: 0 12px;
+                height: 56px;
+            }
+            .nav-logo {
+                font-size: 16px;
+            }
+            .nav-logo img {
+                height: 24px;
+            }
+            .nav-cta {
+                font-size: 11px;
+                padding: 6px 12px;
+                border-radius: var(--radius-sm);
+            }
+        }
 
         /* ─── HERO ─────────────────────────────────────────────── */
         .hero {
-            padding: 45px 0 80px;
+            padding: 32px 0 60px;
             background: transparent;
             position: relative;
             overflow: hidden;
@@ -224,59 +224,65 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 24px;
+            gap: 20px;
         }
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 999px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--muted);
             box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .hero-badge .flag {
-            font-size: 16px;
+            font-size: 14px;
         }
         .hero h1 {
-            font-size: clamp(34px, 6vw, 64px);
+            font-size: clamp(30px, 6vw, 64px);
             max-width: 800px;
             color: var(--white);
         }
         .hero-sub {
-            font-size: clamp(16px, 2.2vw, 20px);
+            font-size: clamp(15px, 2.2vw, 20px);
             color: var(--muted);
             max-width: 640px;
             line-height: 1.6;
         }
 
-        /* ── HERO CTA GROUP ── */
         .hero-cta-group {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             gap: 12px;
+            width: 100%;
+            max-width: 560px;
         }
         .btn-primary {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: var(--blue);
             color: #fff;
-            padding: 15px 32px;
+            padding: 14px 28px;
             border-radius: var(--radius-md);
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             border: none;
             box-shadow: 0 4px 20px rgba(32, 178, 170, 0.35);
             transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
             text-decoration: none;
             cursor: pointer;
+            flex: 1;
+            min-width: 180px;
         }
         .btn-primary:hover {
             background: var(--blue-dark);
@@ -286,29 +292,31 @@
         .btn-primary:active {
             transform: translateY(0);
         }
-
         .btn-secondary {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: transparent;
             color: var(--white);
-            padding: 15px 24px;
+            padding: 14px 20px;
             border-radius: var(--radius-md);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             border: 1.5px solid var(--border);
             transition: all var(--transition);
             text-decoration: none;
             cursor: pointer;
+            flex: 1;
+            min-width: 160px;
         }
         .btn-secondary:hover {
             border-color: var(--white);
             background: rgba(255, 255, 255, 0.05);
         }
         .btn-secondary .play-icon {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             background: var(--white);
             display: flex;
@@ -326,16 +334,43 @@
         .btn-secondary .play-icon svg path {
             fill: #071a1c;
         }
+        @media (max-width: 640px) {
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-primary,
+            .btn-secondary {
+                flex: none;
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: clamp(26px, 7vw, 36px);
+            }
+            .hero-sub {
+                font-size: 14px;
+            }
+            .hero-badge {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            .hero {
+                padding: 20px 0 40px;
+            }
+        }
 
         /* ─── PROCESS VIDEO SECTION ────────────────────────────── */
         .process-video-section {
-            padding: 0 0 80px;
+            padding: 0 0 60px;
             background: transparent;
         }
         .process-video-tilt {
             max-width: 1080px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 16px;
             animation: tiltIn 1s cubic-bezier(.3, 1, .4, 1) both;
         }
         @keyframes tiltIn {
@@ -346,6 +381,14 @@
             to {
                 transform: perspective(1200px) rotateX(0deg) translateY(0);
                 opacity: 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .process-video-tilt {
+                animation: none;
+                transform: none !important;
+                opacity: 1 !important;
+                padding: 0 12px;
             }
         }
         .process-video-frame {
@@ -381,7 +424,6 @@
         .process-video-frame:hover .process-video-overlay {
             background: rgba(0, 0, 0, .5);
         }
-
         .play-btn-wrap {
             position: absolute;
             inset: 0;
@@ -390,8 +432,8 @@
             justify-content: center;
         }
         .play-btn {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             background: rgba(255, 255, 255, .18);
             border: 2.5px solid rgba(255, 255, 255, .7);
@@ -422,7 +464,26 @@
             animation-play-state: paused;
         }
         .play-btn svg {
-            margin-left: 4px;
+            margin-left: 3px;
+            width: 18px;
+            height: 22px;
+        }
+        @media (max-width: 480px) {
+            .play-btn {
+                width: 50px;
+                height: 50px;
+            }
+            .play-btn svg {
+                width: 14px;
+                height: 18px;
+            }
+            .process-video-frame {
+                border-radius: 12px;
+                border-width: 1.5px;
+            }
+            .process-video-section {
+                padding: 0 0 40px;
+            }
         }
 
         /* Video lightbox modal */
@@ -449,7 +510,7 @@
             }
         }
         .video-modal-inner {
-            width: 90vw;
+            width: 92vw;
             max-width: 960px;
             position: relative;
             border-radius: var(--radius-xl);
@@ -476,10 +537,10 @@
         }
         .video-modal-close {
             position: absolute;
-            top: 14px;
-            right: 14px;
-            width: 36px;
-            height: 36px;
+            top: 12px;
+            right: 12px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: rgba(0, 0, 0, .5);
             border: 1px solid rgba(255, 255, 255, .3);
@@ -488,7 +549,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1;
             transition: background var(--transition);
             z-index: 10;
@@ -496,22 +557,35 @@
         .video-modal-close:hover {
             background: rgba(0, 0, 0, .8);
         }
+        @media (max-width: 480px) {
+            .video-modal-inner {
+                width: 98vw;
+                border-radius: var(--radius-lg);
+            }
+            .video-modal-close {
+                top: 8px;
+                right: 8px;
+                width: 28px;
+                height: 28px;
+                font-size: 13px;
+            }
+        }
 
         /* ─── TRUST ────────────────────────────────────────────── */
         .trust-logos-wrapper {
             overflow: hidden;
             width: 100%;
-            margin: 40px 0 20px 0;
+            margin: 30px 0 20px 0;
             position: relative;
             background: transparent;
-            padding: 15px 0;
+            padding: 12px 0;
         }
         .trust-logos-wrapper::before,
         .trust-logos-wrapper::after {
             content: '';
             position: absolute;
             top: 0;
-            width: 100px;
+            width: 80px;
             height: 100%;
             z-index: 2;
             pointer-events: none;
@@ -526,7 +600,7 @@
         }
         .trust-logos-track {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             animation: scrollLogos 25s linear infinite;
             width: max-content;
         }
@@ -537,17 +611,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             flex-shrink: 0;
-            min-width: 120px;
+            min-width: 100px;
             transition: all 0.3s ease;
         }
         .logo-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
         }
         .logo-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -556,7 +630,7 @@
             justify-content: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
             transition: all 0.3s ease;
-            padding: 12px;
+            padding: 10px;
         }
         .logo-item:hover .logo-icon {
             box-shadow: 0 8px 25px rgba(0, 0, 0, .6);
@@ -571,7 +645,7 @@
             filter: sepia(1) saturate(3) hue-rotate(-50deg) brightness(1.1) contrast(1.2);
         }
         .logo-name {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--muted);
             text-align: center;
@@ -592,18 +666,44 @@
                 width: 40px;
             }
             .trust-logos-track {
-                gap: 25px;
+                gap: 20px;
             }
             .logo-item {
-                min-width: 80px;
+                min-width: 70px;
             }
             .logo-icon {
-                width: 60px;
-                height: 60px;
-                padding: 8px;
+                width: 50px;
+                height: 50px;
+                padding: 6px;
+                border-radius: 10px;
             }
             .logo-name {
-                font-size: 10px;
+                font-size: 9px;
+            }
+        }
+        @media (max-width: 480px) {
+            .trust-logos-wrapper {
+                padding: 8px 0;
+                margin: 20px 0 10px 0;
+            }
+            .trust-logos-wrapper::before,
+            .trust-logos-wrapper::after {
+                width: 30px;
+            }
+            .trust-logos-track {
+                gap: 14px;
+            }
+            .logo-item {
+                min-width: 56px;
+            }
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                padding: 4px;
+                border-radius: 8px;
+            }
+            .logo-name {
+                font-size: 8px;
             }
         }
 
@@ -611,28 +711,44 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-top: 48px;
+            margin-top: 40px;
         }
         .metric-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 32px 24px;
+            padding: 28px 20px;
             text-align: center;
             box-shadow: var(--shadow-sm);
         }
         .metric-card .num {
             font-family: 'Sora', sans-serif;
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--blue);
             line-height: 1;
         }
         .metric-card .label {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--muted);
-            margin-top: 8px;
+            margin-top: 6px;
             line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .metrics-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                margin-top: 28px;
+            }
+            .metric-card {
+                padding: 20px 16px;
+            }
+            .metric-card .num {
+                font-size: 30px;
+            }
+            .metric-card .label {
+                font-size: 12px;
+            }
         }
 
         /* ─── CONFIGURATOR WIZARD ─────────────────────────────── */
@@ -751,6 +867,7 @@
             color: var(--white);
             text-align: left;
             transition: all var(--transition);
+            width: 100%;
         }
         .option-btn:hover {
             border-color: var(--blue);
@@ -857,6 +974,129 @@
             font-size: 14px;
             color: var(--muted);
             line-height: 1.65;
+        }
+
+        /* ─── CAPABILITIES FEATURE GRID ───────────────────────── */
+        .cap-feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            padding: 40px 0;
+        }
+        .cap-feature-grid .text-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cap-feature-grid .text-col h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .cap-feature-grid .text-col p {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            max-width: 520px;
+        }
+        .cap-feature-grid .img-col {
+            min-height: 260px;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        .cap-feature-grid .img-col img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag-group .tag {
+            background: var(--blue-light);
+            color: var(--blue);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ─── MOBILE: CAPABILITIES STACK WITH IMAGE ON TOP ────── */
+        @media (max-width: 900px) {
+            .cap-feature-grid {
+                grid-template-columns: 1fr !important;
+                gap: 28px;
+                padding: 28px 0;
+            }
+            /* Force image on top for ALL blocks on mobile */
+            .cap-feature-grid .img-col {
+                order: -1 !important;
+                min-height: 200px;
+            }
+            .cap-feature-grid .text-col {
+                order: 0 !important;
+            }
+            .cap-feature-grid .text-col p {
+                max-width: 100%;
+            }
+            .cap-feature-grid .img-col img {
+                height: 200px;
+            }
+            .cap-feature-grid .text-col h3 {
+                font-size: 24px;
+            }
+            .cap-feature-grid .text-col p {
+                font-size: 15px;
+            }
+            .tag-group .tag {
+                font-size: 12px;
+                padding: 4px 12px;
+            }
+            /* Ensure second and fourth blocks also follow the same stack */
+            .cap-feature-grid .img-col[style*="order"],
+            .cap-feature-grid .text-col[style*="order"] {
+                order: inherit !important;
+            }
+            .cap-feature-grid .img-col {
+                order: -1 !important;
+            }
+            .cap-feature-grid .text-col {
+                order: 0 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cap-feature-grid {
+                padding: 16px 0;
+                gap: 18px;
+            }
+            .cap-feature-grid .img-col {
+                min-height: 160px;
+            }
+            .cap-feature-grid .img-col img {
+                height: 160px;
+            }
+            .cap-feature-grid .text-col h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .cap-feature-grid .text-col p {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+            .tag-group .tag {
+                font-size: 11px;
+                padding: 4px 10px;
+            }
         }
 
         /* ─── LEAD CAPTURE ────────────────────────────────────── */
@@ -1093,7 +1333,7 @@
             color: var(--muted-2);
         }
 
-        /* ─── MODAL OVERLAY (FIXED: NO SCROLLING) ────────────── */
+        /* ─── MODAL OVERLAY ────────────────────────────────────── */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -1119,21 +1359,19 @@
             }
         }
 
-        /* ─── MODAL CONTAINER: FULL HEIGHT, NO SCROLL ─────────── */
         .modal-container {
             background: var(--surface);
             border-radius: var(--radius-xl);
             max-width: 720px;
             width: 100%;
-            height: 100vh;
-            max-height: 100vh;
+            height: 90vh;
+            max-height: 90vh;
             position: relative;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
             border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            /* ← NO SCROLLING */;
         }
 
         .modal-close {
@@ -1164,7 +1402,7 @@
             transform: rotate(90deg);
         }
 
-        /* ─── WIZARD INSIDE MODAL: FULL HEIGHT, NO SCROLL ────── */
+        /* ─── WIZARD INSIDE MODAL ─────────────────────────────── */
         .modal-container .wizard-card {
             border: none;
             box-shadow: none;
@@ -1204,14 +1442,14 @@
         }
         .modal-container .wizard-card .wizard-body {
             flex: 1;
-            overflow: hidden;
-            /* ← NO SCROLL */
+            overflow-y: auto;
             min-height: 0;
             padding: 14px 28px 10px;
             background: #11262a;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            -webkit-overflow-scrolling: touch;
         }
         .modal-container .wizard-card .wizard-nav {
             flex-shrink: 0;
@@ -1224,7 +1462,7 @@
             gap: 10px;
         }
 
-        /* ─── QUOTE FORM INSIDE MODAL: FULL HEIGHT, NO SCROLL ── */
+        /* ─── QUOTE FORM INSIDE MODAL ─────────────────────────── */
         .modal-container .lead-form-wrap {
             border: none;
             box-shadow: none;
@@ -1270,13 +1508,12 @@
         }
         .modal-container .lead-form-wrap .form-body {
             flex: 1;
-            overflow: hidden;
-            /* ← NO SCROLL */
+            overflow-y: auto;
             padding: 14px 28px 10px;
             background: #11262a;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            -webkit-overflow-scrolling: touch;
         }
         .modal-container .lead-form-wrap .form-footer {
             flex-shrink: 0;
@@ -1379,8 +1616,8 @@
             .modal-container {
                 border-radius: var(--radius-lg);
                 max-width: 100%;
-                height: 100vh;
-                max-height: 100vh;
+                height: 95vh;
+                max-height: 95vh;
                 margin: 0;
             }
             .modal-container .wizard-card .wizard-header>div {
@@ -1552,7 +1789,6 @@
             }
         }
 
-        /* ─── EXTRA SMALL HEIGHT (max-height: 700px) ──────────── */
         @media (max-height: 700px) {
             .modal-container .wizard-card .wizard-header>div {
                 padding: 8px 14px 6px;
@@ -1687,14 +1923,14 @@
         footer {
             background: rgba(7, 26, 28, 0.9);
             color: rgba(255, 255, 255, .7);
-            padding: 56px 0 32px;
+            padding: 48px 0 32px;
             border-top: 1px solid var(--border);
         }
         .footer-inner {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 48px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         footer h4 {
             font-family: 'Sora', sans-serif;
@@ -1732,7 +1968,7 @@
         }
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, .1);
-            padding-top: 24px;
+            padding-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1786,10 +2022,48 @@
             font-size: 10px;
         }
 
+        @media (max-width: 1024px) {
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+        @media (max-width: 768px) {
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+            footer {
+                padding: 36px 0 24px;
+            }
+            .footer-desc {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .footer-brand {
+                font-size: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            #language-select {
+                min-width: 120px !important;
+                padding: 8px 36px 8px 12px !important;
+                font-size: 13px !important;
+            }
+        }
+
         /* ─── FINAL CTA BANNER ─────────────────────────────────── */
         .cta-banner {
             background: linear-gradient(135deg, #0E5C5D 0%, #071a1c 100%);
-            padding: 72px 0;
+            padding: 60px 0;
             text-align: center;
             color: #fff;
             border-top: 1px solid var(--border);
@@ -1825,12 +2099,107 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
         }
+        @media (max-width: 480px) {
+            .cta-banner {
+                padding: 40px 0;
+            }
+            .cta-banner h2 {
+                font-size: 22px;
+            }
+            .cta-banner p {
+                font-size: 15px;
+                padding: 0 16px;
+            }
+            .btn-white {
+                padding: 12px 24px;
+                font-size: 14px;
+                width: 90%;
+            }
+        }
 
         /* ─── TRUST CARDS ───────────────────────────────────────── */
         .trust-card:hover .tooltip-box {
             opacity: 1 !important;
             visibility: visible !important;
             transform: translateX(-50%) scale(1) !important;
+        }
+
+        /* ─── TRUST METRICS ─────────────────────────────────────── */
+        .trust-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .trust-metrics .metric-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.3;
+        }
+        .trust-metrics .metric-label {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1.4;
+        }
+        .trust-metrics .metric-label .info-icon {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 400;
+            cursor: help;
+        }
+
+        /* ─── MOBILE: TRUST METRICS IN ONE ROW ────────────────── */
+        @media (max-width: 768px) {
+            .trust-metrics {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 12px;
+                margin-bottom: 28px;
+            }
+            .trust-metrics .metric-num {
+                font-size: 28px;
+            }
+            .trust-metrics .metric-label {
+                font-size: 11px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .trust-metrics .metric-label .info-icon {
+                font-size: 10px;
+            }
+            .trust-metrics .trust-card .tooltip-box {
+                width: 180px !important;
+                font-size: 11px !important;
+                padding: 10px 14px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trust-metrics {
+                gap: 8px;
+            }
+            .trust-metrics .metric-num {
+                font-size: 22px;
+            }
+            .trust-metrics .metric-label {
+                font-size: 9px;
+                gap: 2px;
+            }
+            .trust-metrics .metric-label .info-icon {
+                font-size: 8px;
+            }
+            .trust-metrics .trust-card .tooltip-box {
+                width: 140px !important;
+                font-size: 9px !important;
+                padding: 8px 10px !important;
+                bottom: calc(100% + 10px) !important;
+            }
         }
 
         /* ─── FAQ ───────────────────────────────────────────────── */
@@ -1846,7 +2215,7 @@
             width: 100%;
             background: none;
             border: none;
-            padding: 20px 24px;
+            padding: 18px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1857,15 +2226,15 @@
             transition: background var(--transition);
         }
         .faq-item button span:first-child {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
             line-height: 1.4;
             padding-right: 16px;
         }
         .faq-icon {
             flex-shrink: 0;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
@@ -1873,254 +2242,138 @@
             justify-content: center;
             transition: transform 0.3s ease;
             color: var(--blue);
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
         }
         .faq-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
-            padding: 0 24px;
+            padding: 0 20px;
         }
         .faq-content>div {
-            padding-bottom: 20px;
+            padding-bottom: 18px;
             border-top: 1px solid var(--border);
-            padding-top: 16px;
+            padding-top: 14px;
         }
         .faq-content p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--muted);
             line-height: 1.7;
             margin: 0;
         }
-
-        /* ─── RESPONSIVE (PAGE LAYOUT) ───────────────────────── */
-        @media (max-width: 1024px) {
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
+        @media (max-width: 480px) {
+            .faq-item button {
+                padding: 14px 16px;
+            }
+            .faq-item button span:first-child {
+                font-size: 14px;
+            }
+            .faq-content>div {
+                padding-bottom: 14px;
+                padding-top: 10px;
+            }
+            .faq-content p {
+                font-size: 13px;
             }
         }
 
-        @media (max-width: 768px) {
-            .metrics-row {
-                grid-template-columns: 1fr;
-                gap: 16px;
+        /* ─── TRUST SECTION HEADER ────────────────────────────── */
+        .trust-header h2 {
+            font-size: clamp(26px, 4vw, 44px);
+            font-weight: 800;
+            color: var(--white);
+            margin: 16px 0 12px;
+        }
+        .trust-header p {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        @media (max-width: 480px) {
+            .trust-header h2 {
+                font-size: 22px;
             }
-            .cap-grid {
-                grid-template-columns: 1fr;
+            .trust-header p {
+                font-size: 14px;
             }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
-            }
-            .lead-form-wrap {
-                padding: 32px 24px;
-            }
-            .ty-card {
-                padding: 36px 24px;
-            }
-            .hero-cta-group {
+        }
+
+        /* ─── TRUST CTA BUTTONS ────────────────────────────────── */
+        .trust-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 12px;
+            padding: 16px 0 8px;
+        }
+        .trust-ctas .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--blue);
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 700;
+            border: 2px solid var(--blue);
+            transition: all var(--transition);
+            cursor: pointer;
+        }
+        .trust-ctas .btn-ghost:hover {
+            background: rgba(32, 178, 170, 0.1);
+        }
+        @media (max-width: 480px) {
+            .trust-ctas {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 10px;
             }
-            .btn-primary,
-            .btn-secondary {
+            .trust-ctas .btn-ghost {
                 justify-content: center;
+                padding: 12px 20px;
+                font-size: 14px;
             }
-            .play-btn {
-                width: 56px;
-                height: 56px;
-            }
+        }
+
+        /* ─── REVIEWS RESPONSIVE ───────────────────────────────── */
+        @media (max-width: 768px) {
             .reviews-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+                margin-top: 32px;
             }
-            #language-select {
-                min-width: 120px !important;
-                padding: 8px 36px 8px 12px !important;
-                font-size: 13px !important;
+            .review-card {
+                padding: 20px;
             }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 30px;
-            }
-            .footer-inner {
-                grid-template-columns: 1fr;
-            }
-            .nav-right .nav-cta {
-                display: none;
-            }
-            #language-select {
-                min-width: 100px !important;
-                padding: 6px 32px 6px 10px !important;
-                font-size: 12px !important;
+            .review-text {
+                font-size: 13px;
             }
         }
 
-        /* === UI FIXES: Wizard + Quote modal (comfortable sizes, proper layout) === */
-
-        /* 1) Modal container: give a little vertical margin and keep scroll inside bodies */
-        .modal-overlay.open .modal-container {
-            height: 90vh !important;
-            max-height: 90vh !important;
-            border-radius: var(--radius-xl) !important;
-        }
-
-        /* 2) Wizard: keep header and nav fixed, let the body scroll */
-        .modal-container .wizard-card {
-            display: flex !important;
-            flex-direction: column !important;
-            height: 100% !important;
-            max-height: 100% !important;
-        }
-
-        .modal-container .wizard-card .wizard-header,
-        .modal-container .wizard-card .wizard-nav {
-            flex-shrink: 0 !important;
-        }
-
-        .modal-container .wizard-card .wizard-body {
-            flex: 1 1 auto !important;
-            overflow-y: auto !important;
-            -webkit-overflow-scrolling: touch !important;
-            justify-content: flex-start !important;
-            padding: 24px 32px 20px !important;
-            background: #11262a !important;
-        }
-
-        /* 3) Quote form: keep header fixed, body scrollable, footer visible */
-        .modal-container .lead-form-wrap {
-            display: flex !important;
-            flex-direction: column !important;
-            height: 100% !important;
-            max-height: 100% !important;
-        }
-
-        .modal-container .lead-form-wrap .form-header,
-        .modal-container .lead-form-wrap .form-footer {
-            flex-shrink: 0 !important;
-        }
-
-        .modal-container .lead-form-wrap .form-body {
-            flex: 1 1 auto !important;
-            overflow-y: auto !important;
-            -webkit-overflow-scrolling: touch !important;
-            padding: 24px 28px 18px !important;
-        }
-
-        /* 4) Comfortable, accessible typography and controls (avoid iOS zoom) */
-        .modal-container .wizard-q {
-            font-size: 20px !important;
-            line-height: 1.35 !important;
-            margin-bottom: 14px !important;
-        }
-
-        .modal-container .options-grid {
-            gap: 12px !important;
-        }
-
-        .modal-container .option-btn {
-            padding: 12px 16px !important;
-            font-size: 16px !important;
-            border-radius: var(--radius-md) !important;
-            line-height: 1.35 !important;
-        }
-
-        .modal-container .option-radio {
-            width: 18px !important;
-            height: 18px !important;
-        }
-
-        .modal-container .wizard-hint {
-            font-size: 13px !important;
-            padding: 10px 12px !important;
-            margin-top: 12px !important;
-        }
-
-        .modal-container .wizard-back,
-        .modal-container .wizard-next {
-            padding: 10px 18px !important;
-            font-size: 15px !important;
-            border-radius: var(--radius-md) !important;
-        }
-
-        /* 5) Quote form fields: readable labels and touch-target sizes */
-        .modal-container .form-row {
-            grid-template-columns: 1fr 1fr !important;
-            gap: 16px !important;
-        }
-
-        @media (max-width: 600px) {
-            .modal-container .form-row {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        .modal-container .field {
-            margin-bottom: 14px !important;
-        }
-
-        .modal-container .field label {
-            font-size: 14px !important;
-            color: var(--ink) !important;
-            opacity: 0.9 !important;
-            margin-bottom: 6px !important;
-        }
-
-        .modal-container .field input {
-            padding: 12px 14px !important;
-            font-size: 16px !important;
-            min-height: 44px !important;
-            border-radius: var(--radius-md) !important;
-        }
-
-        .modal-container .dropzone {
-            padding: 18px 16px !important;
-            border-radius: var(--radius-md) !important;
-        }
-
-        .modal-container .dropzone p,
-        .modal-container .dropzone strong {
-            font-size: 14px !important;
-        }
-
-        .modal-container .btn-submit {
-            padding: 14px 18px !important;
-            font-size: 16px !important;
-            border-radius: var(--radius-md) !important;
-        }
-
-        /* 6) Ensure readable base text in the modals */
-        .modal-container,
-        .modal-container .wizard-card,
-        .modal-container .lead-form-wrap {
-            line-height: 1.55 !important;
-        }
-
-        /* 7) Keep things legible even on small devices: do not shrink below 14–16px */
+        /* ─── SECTION PADDING RESPONSIVE ───────────────────────── */
         @media (max-width: 768px) {
-            .modal-container .wizard-q {
-                font-size: 18px !important;
+            .section {
+                padding: 50px 0;
             }
-            .modal-container .option-btn {
-                font-size: 15px !important;
-                padding: 10px 14px !important;
+        }
+        @media (max-width: 480px) {
+            .section {
+                padding: 32px 0;
             }
-            .modal-container .wizard-back,
-            .modal-container .wizard-next {
-                font-size: 14px !important;
-                padding: 9px 16px !important;
+            .container {
+                padding: 0 14px;
             }
-            .modal-container .field label {
-                font-size: 13px !important;
+            .lead-form-wrap {
+                padding: 28px 16px;
+                border-radius: var(--radius-lg);
             }
-            .modal-container .field input {
-                font-size: 16px !important;
+            .ty-card {
+                padding: 28px 16px;
             }
         }
 
@@ -2128,11 +2381,11 @@
         .video-dropzone {
             border: 2px dashed var(--border);
             border-radius: var(--radius-md);
-            padding: 20px 24px;
+            padding: 18px 20px;
             text-align: center;
             cursor: pointer;
             transition: all var(--transition);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             background: rgba(255, 255, 255, 0.02);
         }
         .video-dropzone:hover {
@@ -2140,8 +2393,8 @@
             background: rgba(255, 255, 255, 0.05);
         }
         .video-dropzone .dropzone-icon {
-            font-size: 32px;
-            margin-bottom: 6px;
+            font-size: 28px;
+            margin-bottom: 4px;
         }
         .video-dropzone p {
             font-size: 13px;
@@ -2151,27 +2404,27 @@
             color: var(--blue);
         }
         .video-dropzone .file-info {
-            margin-top: 8px;
+            margin-top: 6px;
             font-size: 12px;
             color: var(--blue);
         }
         .video-preview-container {
-            margin-top: 10px;
-            margin-bottom: 16px;
+            margin-top: 8px;
+            margin-bottom: 12px;
             border-radius: var(--radius-sm);
             overflow: hidden;
             background: #000;
-            max-height: 180px;
+            max-height: 160px;
             display: none;
         }
         .video-preview-container video {
             width: 100%;
             height: auto;
-            max-height: 180px;
+            max-height: 160px;
             display: block;
         }
         .video-preview-container .video-name {
-            padding: 6px 12px;
+            padding: 4px 12px;
             font-size: 12px;
             color: var(--muted);
             background: rgba(0, 0, 0, 0.6);
@@ -2214,26 +2467,26 @@
 
         /* Modal video upload field specific */
         .modal-container .video-dropzone {
-            padding: 12px 16px;
-            margin-bottom: 10px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
             border-radius: var(--radius-sm);
         }
         .modal-container .video-dropzone .dropzone-icon {
-            font-size: 22px;
-            margin-bottom: 3px;
+            font-size: 20px;
+            margin-bottom: 2px;
         }
         .modal-container .video-dropzone p {
-            font-size: 12px;
+            font-size: 11px;
         }
         .modal-container .video-dropzone strong {
-            font-size: 12px;
+            font-size: 11px;
         }
         .modal-container .video-preview-container {
-            max-height: 120px;
-            margin-bottom: 10px;
+            max-height: 100px;
+            margin-bottom: 8px;
         }
         .modal-container .video-preview-container video {
-            max-height: 120px;
+            max-height: 100px;
         }
         .modal-container .upload-status {
             font-size: 10px;
@@ -2248,14 +2501,14 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 16px 28px;
+            padding: 14px 24px;
             color: var(--white);
             box-shadow: var(--shadow-lg);
             z-index: 2000;
             opacity: 0;
             transition: all 0.4s cubic-bezier(.3, 1, .4, 1);
             pointer-events: none;
-            max-width: 90vw;
+            max-width: 92vw;
             text-align: center;
         }
         .toast.show {
@@ -2264,16 +2517,30 @@
             pointer-events: auto;
         }
         .toast .toast-icon {
-            font-size: 24px;
-            margin-right: 10px;
+            font-size: 22px;
+            margin-right: 8px;
             vertical-align: middle;
         }
         .toast .toast-msg {
-            font-size: 14px;
+            font-size: 13px;
             vertical-align: middle;
         }
         .toast .toast-msg strong {
             color: var(--blue);
+        }
+        @media (max-width: 480px) {
+            .toast {
+                bottom: 16px;
+                padding: 12px 16px;
+                max-width: 96vw;
+            }
+            .toast .toast-icon {
+                font-size: 18px;
+                margin-right: 6px;
+            }
+            .toast .toast-msg {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -2283,12 +2550,12 @@
     <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="/" class="nav-logo" aria-label="Moster SMD Home">
-                <img src="https://www.moster-smd.de/images/moster-smd-technik-logo.svg" alt="Moster SMD Logo" style="height:32px;width:auto;display:block;" />
+                <img src="https://www.moster-smd.de/images/moster-smd-technik-logo.svg" alt="Moster SMD Logo" style="height:28px;width:auto;display:block;" />
             </a>
             <div class="nav-right">
                 <button class="nav-cta" onclick="openModal('quote-modal')">
-                    <span data-lang="de">Angebot anfordern</span>
-                    <span data-lang="en">Request a Quote</span>
+                    <span data-lang="de">Angebot</span>
+                    <span data-lang="en">Quote</span>
                 </button>
             </div>
         </div>
@@ -2307,8 +2574,8 @@
                     </div>
 
                     <h1 class="display">
-                        <span data-lang="de">SMD-Bestückung & Leiterplattenfertigung —<br />Hergestellt in Deutschland</span>
-                        <span data-lang="en">SMD Assembly & PCB Manufacturing —<br />Made in Germany</span>
+                        <span data-lang="de">SMD-Bestückung &amp; Leiterplattenfertigung —<br />Hergestellt in Deutschland</span>
+                        <span data-lang="en">SMD Assembly &amp; PCB Manufacturing —<br />Made in Germany</span>
                     </h1>
 
                     <p class="hero-sub">
@@ -2321,7 +2588,6 @@
                         <span data-lang="en">Quote within 24 Hours — No Commitment Required</span>
                     </p>
 
-                    <!-- ── Hero CTA: "Kostenloses Angebot" opens Quote Modal ── -->
                     <div class="hero-cta-group">
                         <button onclick="openModal('quote-modal')" class="btn-primary">
                             <span data-lang="de">Kostenloses Angebot anfordern →</span>
@@ -2374,15 +2640,15 @@
 </div>
 
 <!-- ░░ SECTION 2: TRUST BENCHMARK ░░░░░░░░░░░░░░░░░░░░░░░ -->
-<section class="section" aria-labelledby="trust-heading" style="padding:60px 0 40px; background:transparent;">
+<section class="section" aria-labelledby="trust-heading" style="padding:50px 0 30px; background:transparent;">
     <div class="container">
 
         <!-- Trust Logos Scrolling -->
-        <div style="margin-bottom:60px;">
-            <div style="text-align:center; margin-bottom:40px;">
-                <p style="font-size:26px; font-weight:700; color:var(--white); letter-spacing:0.02em; text-transform:uppercase;">
-                    <span data-lang="de">Vertraut von 8000+ führenden Marken & High-Tech-Industrien</span>
-                    <span data-lang="en">Trusted by 8000+ Leading Brands & High Tech Industries</span>
+        <div style="margin-bottom:48px;">
+            <div style="text-align:center; margin-bottom:32px;">
+                <p style="font-size:clamp(18px,3vw,26px); font-weight:700; color:var(--white); letter-spacing:0.02em; text-transform:uppercase;">
+                    <span data-lang="de">Vertraut von 8000+ führenden Marken &amp; High-Tech-Industrien</span>
+                    <span data-lang="en">Trusted by 8000+ Leading Brands &amp; High Tech Industries</span>
                 </p>
             </div>
             <div class="trust-logos-wrapper">
@@ -2434,28 +2700,28 @@
 
         <!-- Why Trust Section -->
         <div style="max-width:1100px; margin:0 auto;">
-            <div style="text-align:center; margin-bottom:56px;">
+            <div style="text-align:center; margin-bottom:44px;">
                 <span class="section-label" style="background:var(--blue-light); color:var(--blue); font-size:12px; letter-spacing:0.15em; padding:6px 18px;">
                     <span data-lang="de">Warum Moster SMD</span>
                     <span data-lang="en">Why Moster SMD</span>
                 </span>
-                <h2 class="heading" id="trust-heading" style="margin:16px 0 12px; font-size:clamp(30px,4vw,44px); font-weight:800; color:var(--white);">
+                <h2 class="heading" id="trust-heading" style="margin:16px 0 12px; font-size:clamp(26px,4vw,44px); font-weight:800; color:var(--white);">
                     <span data-lang="de">Warum vertrauen High-Tech-Marken und Industrien auf Moster SMD Technik?</span>
-                    <span data-lang="en">Why Do High-Tech Brands & Industries Trust Moster SMD Technik?</span>
+                    <span data-lang="en">Why Do High-Tech Brands &amp; Industries Trust Moster SMD Technik?</span>
                 </h2>
-                <p style="font-size:17px; color:var(--muted); max-width:720px; margin:0 auto; line-height:1.7;">
+                <p style="font-size:clamp(15px,1.6vw,17px); color:var(--muted); max-width:720px; margin:0 auto; line-height:1.7;">
                     <span data-lang="de">In der High-Tech-Fertigung kann ein einziger Bauteilfehler ganze Produktionslinien lahmlegen oder medizinische Geräte gefährden. Klassischen Bestückungspartnern fehlen oft die strengen Schutzmaßnahmen für sensible Elektronik. Tatsächlich verursacht unsichtbare ESD-Entladung bis zu 33 % aller Bauteilausfälle weltweit. Moster SMD eliminiert dieses Risiko durch eine zertifizierte, antistatische Fertigung für absolute Präzision.</span>
                     <span data-lang="en">In high-tech manufacturing, a single component failure can stall production lines or compromise medical equipment. Traditional assembly often lacks the strict safeguards required for high-stakes electronics. In fact, invisible ESD damage causes up to 33% of component failures worldwide. Moster SMD eliminates this risk with an elite, static-safe facility built for flawless precision.</span>
                 </p>
             </div>
 
-            <!-- Trust Metrics -->
-            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-bottom:48px; text-align:center;">
+            <!-- Trust Metrics – now stays in one row on mobile -->
+            <div class="trust-metrics">
                 <div class="trust-card" style="position:relative; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-                    <span style="font-family:'Sora',sans-serif; font-size:56px; font-weight:600; color:var(--white); line-height:2.1; margin-bottom:8px;">30+</span>
-                    <div style="font-size:16px; font-weight:700; color:var(--white); display:inline-flex; align-items:center; gap:4px; line-height:1.4;">
-                        <span><span data-lang="de">Jahre Präzisionsfertigung</span><span data-lang="en">Years of Precision Manufacturing</span></span>
-                        <span style="font-size:14px; color:var(--muted); font-weight:normal;">ⓘ</span>
+                    <span class="metric-num">30+</span>
+                    <div class="metric-label">
+                        <span><span data-lang="de">Jahre</span><span data-lang="en">Years</span></span>
+                        <span class="info-icon">ⓘ</span>
                     </div>
                     <div class="tooltip-box" style="position:absolute; bottom:calc(100% + 14px); left:50%; transform:translateX(-50%) scale(0.9); background:#051316; color:#fff; padding:14px 20px; border-radius:8px; font-size:13px; line-height:1.5; width:240px; opacity:0; visibility:hidden; transition:all 0.25s ease; pointer-events:none; box-shadow:0 8px 32px rgba(0,0,0,0.8); z-index:10; text-align:center; border:1px solid var(--border);">
                         <span data-lang="de">Jahrzehnte bewährter deutscher Ingenieurskunst für fehlerfreie Produktmontagepläne.</span>
@@ -2464,38 +2730,38 @@
                     </div>
                 </div>
                 <div class="trust-card" style="position:relative; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-                    <span style="font-family:'Sora',sans-serif; font-size:56px; font-weight:600; color:var(--white); line-height:2.1; margin-bottom:8px;">600 m²</span>
-                    <div style="font-size:16px; font-weight:700; color:var(--white); display:inline-flex; align-items:center; gap:4px; line-height:1.4;">
-                        <span><span data-lang="de">ESD-geschützte Anlage</span><span data-lang="en">ESD-Protected Facility</span></span>
-                        <span style="font-size:14px; color:var(--muted); font-weight:normal;">ⓘ</span>
+                    <span class="metric-num">600 m²</span>
+                    <div class="metric-label">
+                        <span><span data-lang="de">ESD-Anlage</span><span data-lang="en">ESD-Facility</span></span>
+                        <span class="info-icon">ⓘ</span>
                     </div>
                     <div class="tooltip-box" style="position:absolute; bottom:calc(100% + 14px); left:50%; transform:translateX(-50%) scale(0.9); background:#051316; color:#fff; padding:14px 20px; border-radius:8px; font-size:13px; line-height:1.5; width:240px; opacity:0; visibility:hidden; transition:all 0.25s ease; pointer-events:none; box-shadow:0 8px 32px rgba(0,0,0,0.8); z-index:10; text-align:center; border:1px solid var(--border);">
-                        <span data-lang="de">Zweistöckiger, skalierbarer 3-Schicht-Betrieb vollständig in statisch sicheren Zonen, um Montagerisiken zu minimieren.</span>
-                        <span data-lang="en">Two-floor, 3-shift scalable operation runs completely within static-safe zones to minimize assembly risk.</span>
+                        <span data-lang="de">Zweistöckiger, skalierbarer 3-Schicht-Betrieb vollständig in statisch sicheren Zonen.</span>
+                        <span data-lang="en">Two-floor, 3-shift scalable operation runs completely within static-safe zones.</span>
                         <div style="position:absolute; bottom:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:12px; height:12px; background:#051316; border-right:1px solid var(--border); border-bottom:1px solid var(--border);"></div>
                     </div>
                 </div>
                 <div class="trust-card" style="position:relative; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-                    <span style="font-family:'Sora',sans-serif; font-size:56px; font-weight:600; color:var(--white); line-height:2.1; margin-bottom:8px;">25K</span>
-                    <div style="font-size:16px; font-weight:700; color:var(--white); display:inline-flex; align-items:center; gap:4px; line-height:1.4;">
-                        <span><span data-lang="de">Einheiten pro Monat</span><span data-lang="en">Units Per Month</span></span>
-                        <span style="font-size:14px; color:var(--muted); font-weight:normal;">ⓘ</span>
+                    <span class="metric-num">25K</span>
+                    <div class="metric-label">
+                        <span><span data-lang="de">/ Monat</span><span data-lang="en">/ Month</span></span>
+                        <span class="info-icon">ⓘ</span>
                     </div>
                     <div class="tooltip-box" style="position:absolute; bottom:calc(100% + 14px); left:50%; transform:translateX(-50%) scale(0.9); background:#051316; color:#fff; padding:14px 20px; border-radius:8px; font-size:13px; line-height:1.5; width:240px; opacity:0; visibility:hidden; transition:all 0.25s ease; pointer-events:none; box-shadow:0 8px 32px rgba(0,0,0,0.8); z-index:10; text-align:center; border:1px solid var(--border);">
-                        <span data-lang="de">Reibungslos verwaltet von 15 Spezialisten, um flexible Losgrößen und schnelle Durchlaufzeiten zu gewährleisten.</span>
-                        <span data-lang="en">Managed smoothly by 15 specialist team members to secure flexible batch sizes and rapid lead times.</span>
+                        <span data-lang="de">Reibungslos verwaltet von 15 Spezialisten für flexible Losgrößen und schnelle Durchlaufzeiten.</span>
+                        <span data-lang="en">Managed smoothly by 15 specialist team members for flexible batch sizes and rapid lead times.</span>
                         <div style="position:absolute; bottom:-6px; left:50%; transform:translateX(-50%) rotate(45deg); width:12px; height:12px; background:#051316; border-right:1px solid var(--border); border-bottom:1px solid var(--border);"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Two CTA Buttons -->
-            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-top:16px; padding:20px 0 10px;">
-                <button onclick="openWizardModal()" style="display:inline-flex; align-items:center; gap:10px; background:var(--blue); color:#fff; padding:16px 36px; border-radius:var(--radius-md); font-size:16px; font-weight:700; border:none; box-shadow:0 4px 20px rgba(32,178,170,0.35); transition:all var(--transition); cursor:pointer;">
+            <div class="trust-ctas">
+                <button onclick="openWizardModal()" style="display:inline-flex; align-items:center; gap:10px; background:var(--blue); color:#fff; padding:14px 32px; border-radius:var(--radius-md); font-size:15px; font-weight:700; border:none; box-shadow:0 4px 20px rgba(32,178,170,0.35); transition:all var(--transition); cursor:pointer;">
                     <span data-lang="de">Konfigurationsassistent</span>
                     <span data-lang="en">Start Your Project Review</span>
                 </button>
-                <button onclick="openModal('quote-modal')" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--blue); padding:16px 36px; border-radius:var(--radius-md); font-size:16px; font-weight:700; border:2px solid var(--blue); transition:all var(--transition); cursor:pointer;">
+                <button onclick="openModal('quote-modal')" class="btn-ghost">
                     <span style="font-size:20px;">📞</span>
                     <span data-lang="de">Vertrieb kontaktieren</span>
                     <span data-lang="en">Contact Sales</span>
@@ -2505,7 +2771,7 @@
     </div>
 </section>
 
-<!-- ░░ WIZARD MODAL (FIXED: FULL HEIGHT, NO SCROLL) ░░░░░ -->
+<!-- ░░ WIZARD MODAL ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <div class="modal-overlay" id="wizard-modal" onclick="closeModalOutside(event, 'wizard-modal')">
     <div class="modal-container" style="max-width:720px;">
 
@@ -2560,7 +2826,7 @@
                         </button>
                         <button class="option-btn" onclick="selectWizardOption(this,'wizard-step-1')" role="radio" aria-checked="false">
                             <span class="option-radio"></span>
-                            <span data-lang="de">Reparatur & Rework / Komponentenaustausch</span><span data-lang="en">Repair & Rework / Component Replacement</span>
+                            <span data-lang="de">Reparatur &amp; Rework / Komponentenaustausch</span><span data-lang="en">Repair &amp; Rework / Component Replacement</span>
                         </button>
                         <button class="option-btn" onclick="selectWizardOption(this,'wizard-step-1')" role="radio" aria-checked="false">
                             <span class="option-radio"></span>
@@ -2671,7 +2937,7 @@
     </div>
 </div>
 
-<!-- ░░ QUOTE MODAL (FIXED: FULL HEIGHT, NO SCROLL) ░░░░░░ -->
+<!-- ░░ QUOTE MODAL ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <div class="modal-overlay" id="quote-modal" onclick="closeModalOutside(event, 'quote-modal')">
     <div class="modal-container" style="max-width:600px;">
 
@@ -2721,7 +2987,17 @@
                         <input type="tel" id="phone-modal" placeholder="+49 123 456 789" />
                     </div>
 
-                    <!-- ─── VIDEO UPLOAD (NEW) ─────────────────── -->
+                    <!-- ─── VIDEO UPLOAD ─────────────────────────── -->
+                    <input type="file" id="video-input-modal" accept="video/*" style="display:none;" />
+
+                    <div class="video-dropzone" id="video-dropzone-modal" onclick="document.getElementById('video-input-modal').click()">
+                        <div class="dropzone-icon">🎥</div>
+                        <p>
+                            <strong><span data-lang="de">Video hochladen (optional)</span><span data-lang="en">Upload a video (optional)</span></strong>
+                            <span style="display:block; font-size:11px; margin-top:2px;"><span data-lang="de">MP4, MOV, AVI, WEBM · max. 500 MB</span><span data-lang="en">MP4, MOV, AVI, WEBM · max 500 MB</span></span>
+                        </p>
+                        <div class="file-info" id="video-file-name-modal"></div>
+                    </div>
 
                     <!-- Video preview -->
                     <div class="video-preview-container" id="video-preview-modal">
@@ -2736,12 +3012,12 @@
                         <span data-lang="en">Uploading video...</span>
                     </div>
 
-                    <!-- ─── GERBER / BOM UPLOAD (kept) ──────────── -->
-                    <div class="dropzone" id="dropzone-modal" onclick="document.getElementById('file-input-modal').click()" style="margin-top:8px;">
+                    <!-- ─── GERBER / BOM UPLOAD ──────────────────── -->
+                    <div class="dropzone" id="dropzone-modal" onclick="document.getElementById('file-input-modal').click()" style="margin-top:6px;">
                         <div class="dropzone-icon">📎</div>
                         <p>
                             <strong><span data-lang="de">Gerber, BOM oder Schaltpläne hochladen</span><span data-lang="en">Upload Gerber, BOM, or schematics</span></strong>
-                            <span style="display:block; font-size:11px; margin-top:2px;"><span data-lang="de">oder Dateien hierher ziehen & ablegen</span><span data-lang="en">or drag & drop files here</span></span>
+                            <span style="display:block; font-size:11px; margin-top:2px;"><span data-lang="de">oder Dateien hierher ziehen &amp; ablegen</span><span data-lang="en">or drag &amp; drop files here</span></span>
                         </p>
                         <p id="file-name-modal" style="font-size:12px; color:var(--blue); margin-top:4px;"></p>
                         <input type="file" id="file-input-modal" multiple accept=".zip,.rar,.gbr,.pdf,.jpg,.png,.svg" style="display:none;" />
@@ -2764,7 +3040,7 @@
 </div>
 
 <!-- ░░ THANK YOU (inline) ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div id="thank-you" style="display:none; padding:60px 24px;">
+<div id="thank-you" style="display:none; padding:50px 16px;">
     <div class="ty-card">
         <div class="ty-check">✓</div>
         <h2><span data-lang="de">Vielen Dank für Ihre Anfrage!</span><span data-lang="en">Thank you for your request!</span></h2>
@@ -2798,12 +3074,11 @@
             </h2>
         </div>
         <div class="reviews-grid">
-            <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"Rainer und sein Team haben unseren Prototypen-Lauf in unter 3 Wochen geliefert. ESD-Disziplin und Dokumentation waren genau das, was wir für unser Medizinprodukteprojekt brauchten."</p><p class="review-text" data-lang="en">Exceptional PCB Assembly & Precision Soldering.<br><br>"Moster SMD Technik delivered flawless results on our high-density PCB prototype. Every 0402 component was placed with surgical precision, and the reflow soldering quality was impeccable. Zero cold joints, zero bridges. Our prototype worked first pass which almost never happens. Highly recommend for any serious electronics development team."</p><div class="reviewer"><div class="avatar">MT</div><div><div class="reviewer-name">Marcus T.</div><div class="reviewer-role"><span data-lang="de">Hardware Engineer, MedTech Startup</span><span data-lang="en">Hardware Engineer</span></div></div></div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"Rainer und sein Team haben unseren Prototypen-Lauf in unter 3 Wochen geliefert. ESD-Disziplin und Dokumentation waren genau das, was wir für unser Medizinprodukteprojekt brauchten."</p><p class="review-text" data-lang="en">Exceptional PCB Assembly &amp; Precision Soldering.<br><br>"Moster SMD Technik delivered flawless results on our high-density PCB prototype. Every 0402 component was placed with surgical precision, and the reflow soldering quality was impeccable. Zero cold joints, zero bridges. Our prototype worked first pass which almost never happens. Highly recommend for any serious electronics development team."</p><div class="reviewer"><div class="avatar">MT</div><div><div class="reviewer-name">Marcus T.</div><div class="reviewer-role"><span data-lang="de">Hardware Engineer, MedTech Startup</span><span data-lang="en">Hardware Engineer</span></div></div></div></div>
             <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"Wir sind von einem asiatischen Lieferanten zu Moster SMD für unsere Automobilserie gewechselt – kürzere Durchlaufzeiten, weniger Fehler und direkte Kommunikation mit Rainer. Beste Entscheidung, die wir getroffen haben."</p><p class="review-text" data-lang="en">Best Prototype Partner We've Found<br><br>"We brought Moster SMD Technik our most complex motor driver board to date - dual- layer with mixed SMD and through-hole components. Not only did they nail the assembly, but their team flagged a footprint mismatch on our BOM before building. That kind of proactive communication saved us days of debugging. They're now our go-to for all robotics electronics work."</p><div class="reviewer"><div class="avatar">LK</div><div><div class="reviewer-name">Lena K.</div><div class="reviewer-role"><span data-lang="de">Einkaufsleiterin, Tier-2 Automobil</span><span data-lang="en">Robotics Startup Founder</span></div></div></div></div>
             <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"Hervorragende Beratung während unserer Entwicklungsphase. Sie haben ein Layout-Problem vor der Produktion erkannt – hat uns ein kostspieliges Redesign erspart. Echte Partnerschaft."</p><p class="review-text" data-lang="en">Top-Tier SMD Work for Our Wearable Tech Prototype<br><br>"Our wearable device board is cramped, multilayer, and demanding - the kind of job that separates good assemblers from great ones. Moster SMD Technik handled it beautifully. Clean solder joints on every micro component, and the conformal coating they applied was even and consistent. Prototype testing came back with a 100% yield. We'll absolutely back for our next revision."</p><div class="reviewer"><div class="avatar">CB</div><div><div class="reviewer-name">Claudia B.</div><div class="reviewer-role"><span data-lang="de">CTO, Industrielle Automatisierung</span><span data-lang="en">Product Development Lead</span></div></div></div></div>
             <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"Das Angebot kam innerhalb von 18 Stunden mit detaillierter BOM-Analyse zurück. Die Qualität der ersten Charge war einwandfrei. Wir haben seitdem drei Folgeaufträge platziert."</p><p class="review-text" data-lang="en">Reliable Partner for Industrial Automation Electronics<br><br>"Working with Moster SMD Technik on our industrial control board prototypes has been outstanding. They handle fine-pitch QFN and BGA components with confidence, and the X-ray inspection reports they provide give us full traceability. When you're designing electronics for machine automation, that level of quality assurance is non-negotiable. Five stars, no hesitation."</p><div class="reviewer"><div class="avatar">SW</div><div><div class="reviewer-name">Stefan W.</div><div class="reviewer-role"><span data-lang="de">Produktmanager, EV-Laden</span><span data-lang="en">Automation Systems Engineer</span></div></div></div></div>
-            <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">Reliable Partner for Industrial Automation Electronics<br><br>"Working with Moster SMD Technik on our industrial control board prototypes has been outstanding. They handle fine-pitch QFN and BGA components with confidence, and the X-ray inspection reports they provide give us full traceability. When you're designing electronics for machine automation, that level of quality assurance is non-negotiable. Five stars, no hesitation."</p><p class="review-text" data-lang="en">Reliable Partner for Industrial Automation Electronics<br><br>"Working with Moster SMD Technik on our industrial control board prototypes has been outstanding. They handle fine-pitch QFN and BGA components with confidence, and the X-ray inspection reports they provide give us full traceability. When you're designing electronics for machine automation, that level of quality assurance is non-negotiable. Five stars, no hesitation."</p><div class="reviewer"><div class="avatar">SW</div><div><div class="reviewer-name">Stefan W.</div><div class="reviewer-role"><span data-lang="de">Operations Lead, Erneuerbare Energien</span><span data-lang="en">Automation Systems Engineer</span></div></div></div></div>
-            <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"30 Jahre Erfahrung merkt man wirklich. Rainers Team montiert nicht nur – sie beraten. Unsere Ausbeute verbesserte sich um 12 % nach ihrem DFM-Feedback."</p><p class="review-text" data-lang="en">Incredible Turnaround on Semiconductor Test Fixtures<br><br>"We needed a fast turnaround on a batch of 20 semiconductor characterization boards under tight schedule pressure. Moster SMD Technik delivered all 20 units fully tested and ready for lab use within 72 hours. The build quality matched production-grade standards. Truly impressive for a prototype run of this complexity."</p><div class="reviewer"><div class="avatar">FR</div><div><div class="reviewer-name">Dr. Fabian R.</div><div class="reviewer-role"><span data-lang="de">Leiter Hardware, IoT-Lösungen</span><span data-lang="en">R&D Lab Manager</span></div></div></div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p class="review-text" data-lang="de">"30 Jahre Erfahrung merkt man wirklich. Rainers Team montiert nicht nur – sie beraten. Unsere Ausbeute verbesserte sich um 12 % nach ihrem DFM-Feedback."</p><p class="review-text" data-lang="en">Incredible Turnaround on Semiconductor Test Fixtures<br><br>"We needed a fast turnaround on a batch of 20 semiconductor characterization boards under tight schedule pressure. Moster SMD Technik delivered all 20 units fully tested and ready for lab use within 72 hours. The build quality matched production-grade standards. Truly impressive for a prototype run of this complexity."</p><div class="reviewer"><div class="avatar">FR</div><div><div class="reviewer-name">Dr. Fabian R.</div><div class="reviewer-role"><span data-lang="de">Leiter Hardware, IoT-Lösungen</span><span data-lang="en">R&amp;D Lab Manager</span></div></div></div></div>
         </div>
     </div>
 </section>
@@ -2812,105 +3087,81 @@
 <section class="section" aria-labelledby="cap-heading" style="padding:0; background:var(--surface);">
     <div class="container" style="max-width:1120px; margin:0 auto; padding:0 24px;">
 
-        <div style="text-align:center; padding:80px 0 60px; max-width:900px; margin:0 auto;">
+        <div style="text-align:center; padding:60px 0 40px; max-width:900px; margin:0 auto;">
             <span class="section-label">
                 <span data-lang="de">Was wir fertigen</span>
                 <span data-lang="en">What We Build</span>
             </span>
-            <h2 class="heading" id="cap-heading" style="margin:16px 0 12px; font-size:clamp(30px,4vw,44px);">
+            <h2 class="heading" id="cap-heading" style="margin:16px 0 12px; font-size:clamp(26px,4vw,44px);">
                 <span data-lang="de">Hochwertige Elektronikfertigungslösungen – entwickelt für absolute Fehlerfreiheit.</span>
                 <span data-lang="en">High-Tech Electronics Manufacturing Solutions, Engineered for Zero Failure.</span>
             </h2>
-            <p style="font-size:18px; color:var(--muted); max-width:640px; margin:0 auto; line-height:1.7;">
-                <span data-lang="de">Erhalten Sie schnelles Prototyping, makellose 0201- & BGA-Bestückung und flexible Serienfertigung im 3-Schicht-Betrieb – unterstützt durch aktive Entwicklungsberatung und eine lückenlos ESD-geschützte Fertigungsumgebung.</span>
-                <span data-lang="en">Get rapid prototyping, flawless 0201 & BGA assembly, and full-scale 3-shift series production—all backed by active engineering consulting and a 100% ESD-secured facility.</span>
+            <p style="font-size:clamp(15px,1.6vw,18px); color:var(--muted); max-width:640px; margin:0 auto; line-height:1.7;">
+                <span data-lang="de">Erhalten Sie schnelles Prototyping, makellose 0201- &amp; BGA-Bestückung und flexible Serienfertigung im 3-Schicht-Betrieb – unterstützt durch aktive Entwicklungsberatung und eine lückenlos ESD-geschützte Fertigungsumgebung.</span>
+                <span data-lang="en">Get rapid prototyping, flawless 0201 &amp; BGA assembly, and full-scale 3-shift series production—all backed by active engineering consulting and a 100% ESD-secured facility.</span>
             </p>
         </div>
 
         <!-- Feature 1: SMD & THT Assembly -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; min-height:400px; background:transparent; padding:40px 0; gap:48px; align-items:center;">
-            <div style="display:flex; flex-direction:column; justify-content:center;">
-                <h3 style="font-family:'Sora',sans-serif; font-size:clamp(28px,3vw,36px); font-weight:700; color:var(--white); margin-bottom:16px; line-height:1.2;">
-                    <span data-lang="de">SMD- & THT-Bestückung</span>
-                    <span data-lang="en">SMD & THT Assembly</span>
-                </h3>
-                <p style="font-size:18px; color:var(--muted); line-height:1.8; margin-bottom:24px; max-width:520px;">
-                    <span data-lang="de">Ultrapräzise automatisierte Platzierung von Komponenten auf hochmodernen Produktionslinien – 0201-Komponenten und BGA-Arbeiten werden einwandfrei ausgeführt.</span>
-                    <span data-lang="en">Ultra-precise automated placement of components on state-of-the-art production lines — 0201 components and BGA work handled flawlessly.</span>
-                </p>
-                <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">0201-Komponenten</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">BGA</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">Automatisierte Bestückung</span>
+        <div class="cap-feature-grid">
+            <div class="text-col">
+                <h3><span data-lang="de">SMD- &amp; THT-Bestückung</span><span data-lang="en">SMD &amp; THT Assembly</span></h3>
+                <p><span data-lang="de">Ultrapräzise automatisierte Platzierung von Komponenten auf hochmodernen Produktionslinien – 0201-Komponenten und BGA-Arbeiten werden einwandfrei ausgeführt.</span><span data-lang="en">Ultra-precise automated placement of components on state-of-the-art production lines — 0201 components and BGA work handled flawlessly.</span></p>
+                <div class="tag-group">
+                    <span class="tag">0201-Komponenten</span>
+                    <span class="tag">BGA</span>
+                    <span class="tag">Automatisierte Bestückung</span>
                 </div>
             </div>
-            <div style="min-height:300px; overflow:hidden;">
-                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1883.JPG" alt="SMD Assembly Line" style="width:100%; height:300px; object-fit:cover; border-radius:16px; border:1px solid var(--border);" loading="lazy" />
+            <div class="img-col">
+                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1883.JPG" alt="SMD Assembly Line" loading="lazy" />
             </div>
         </div>
 
         <!-- Feature 2: Prototyping to Series Production -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; min-height:400px; background:transparent; padding:40px 0; gap:48px; align-items:center;">
-            <div style="min-height:300px; overflow:hidden; order:1;">
-                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1880.JPG" alt="Prototyping to Series Production" style="width:100%; height:300px; object-fit:cover; border-radius:16px; border:1px solid var(--border);" loading="lazy" />
+        <div class="cap-feature-grid">
+            <div class="img-col">
+                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1880.JPG" alt="Prototyping to Series Production" loading="lazy" />
             </div>
-            <div style="display:flex; flex-direction:column; justify-content:center; order:2;">
-                <h3 style="font-family:'Sora',sans-serif; font-size:clamp(28px,3vw,36px); font-weight:700; color:var(--white); margin-bottom:16px; line-height:1.2;">
-                    <span data-lang="de">Vom Prototyp zur Serienproduktion</span>
-                    <span data-lang="en">Prototyping to Series Production</span>
-                </h3>
-                <p style="font-size:18px; color:var(--muted); line-height:1.8; margin-bottom:24px; max-width:520px;">
-                    <span data-lang="de">Schnelle Prototypenschleifen, die nahtlos in die 3-Schicht-Serienfertigung hochskalieren – bis zu 25.000 Einheiten pro Monat.</span>
-                    <span data-lang="en">Rapid prototyping loops seamlessly scaling up to 3-shift high-volume series production — up to 25,000 units per month.</span>
-                </p>
-                <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">Schnelles Prototyping</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">3-Schicht-Betrieb</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">25K Einheiten/Monat</span>
+            <div class="text-col">
+                <h3><span data-lang="de">Vom Prototyp zur Serienproduktion</span><span data-lang="en">Prototyping to Series Production</span></h3>
+                <p><span data-lang="de">Schnelle Prototypenschleifen, die nahtlos in die 3-Schicht-Serienfertigung hochskalieren – bis zu 25.000 Einheiten pro Monat.</span><span data-lang="en">Rapid prototyping loops seamlessly scaling up to 3-shift high-volume series production — up to 25,000 units per month.</span></p>
+                <div class="tag-group">
+                    <span class="tag">Schnelles Prototyping</span>
+                    <span class="tag">3-Schicht-Betrieb</span>
+                    <span class="tag">25K Einheiten/Monat</span>
                 </div>
             </div>
         </div>
 
         <!-- Feature 3: ESD-Secured Environment -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; min-height:400px; background:transparent; padding:40px 0; gap:48px; align-items:center;">
-            <div style="display:flex; flex-direction:column; justify-content:center;">
-                <h3 style="font-family:'Sora',sans-serif; font-size:clamp(28px,3vw,36px); font-weight:700; color:var(--white); margin-bottom:16px; line-height:1.2;">
-                    <span data-lang="de">ESD-geschützte Umgebung</span>
-                    <span data-lang="en">ESD-Secured Environment</span>
-                </h3>
-                <p style="font-size:18px; color:var(--muted); line-height:1.8; margin-bottom:24px; max-width:520px;">
-                    <span data-lang="de">Strikte antistatische Protokolle werden über 600 m² vollständig eingehalten – vom Wareneingang bis zum Versand, jeder Schritt ist geschützt.</span>
-                    <span data-lang="en">Strict antistatic protocols completely maintained across 600 m² — from raw goods receipt to final dispatch, every step protected.</span>
-                </p>
-                <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">600 m² Anlage</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">ESD-geschützt</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">Antistatisch</span>
+        <div class="cap-feature-grid">
+            <div class="text-col">
+                <h3><span data-lang="de">ESD-geschützte Umgebung</span><span data-lang="en">ESD-Secured Environment</span></h3>
+                <p><span data-lang="de">Strikte antistatische Protokolle werden über 600 m² vollständig eingehalten – vom Wareneingang bis zum Versand, jeder Schritt ist geschützt.</span><span data-lang="en">Strict antistatic protocols completely maintained across 600 m² — from raw goods receipt to final dispatch, every step protected.</span></p>
+                <div class="tag-group">
+                    <span class="tag">600 m² Anlage</span>
+                    <span class="tag">ESD-geschützt</span>
+                    <span class="tag">Antistatisch</span>
                 </div>
             </div>
-            <div style="min-height:300px; overflow:hidden;">
-                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1882.JPG" alt="ESD-Protected Manufacturing Facility" style="width:100%; height:300px; object-fit:cover; border-radius:16px; border:1px solid var(--border);" loading="lazy" />
+            <div class="img-col">
+                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1882.JPG" alt="ESD-Protected Manufacturing Facility" loading="lazy" />
             </div>
         </div>
 
         <!-- Feature 4: Engineering Consulting -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; min-height:400px; background:transparent; padding:40px 0; gap:48px; align-items:center;">
-            <div style="min-height:300px; overflow:hidden; order:1;">
-                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1876.JPG" alt="Engineering Consulting" style="width:100%; height:300px; object-fit:cover; border-radius:16px; border:1px solid var(--border);" loading="lazy" />
+        <div class="cap-feature-grid">
+            <div class="img-col">
+                <img src="https://wsmoadyzanyqwobtnxyw.supabase.co/storage/v1/object/public/media/IMG_1876.JPG" alt="Engineering Consulting" loading="lazy" />
             </div>
-            <div style="display:flex; flex-direction:column; justify-content:center; order:2;">
-                <h3 style="font-family:'Sora',sans-serif; font-size:clamp(28px,3vw,36px); font-weight:700; color:var(--white); margin-bottom:16px; line-height:1.2;">
-                    <span data-lang="de">Technologieberatung</span>
-                    <span data-lang="en">Engineering Consulting</span>
-                </h3>
-                <p style="font-size:18px; color:var(--muted); line-height:1.8; margin-bottom:24px; max-width:520px;">
-                    <span data-lang="de">Aktive Beratung zur Fertigungstechnologie bereits in Ihrer Entwicklungsphase – Kosten optimieren, Layoutfehler minimieren, mit Ihnen denken.</span>
-                    <span data-lang="en">Active manufacturing technology consulting early in your development phase — optimizing costs, minimizing layout errors, and thinking alongside you.</span>
-                </p>
-                <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">Kostenoptimierung</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">DFM-Feedback</span>
-                    <span style="background:var(--blue-light); color:var(--blue); padding:6px 16px; border-radius:999px; font-size:13px; font-weight:600;">Layout-Prüfung</span>
+            <div class="text-col">
+                <h3><span data-lang="de">Technologieberatung</span><span data-lang="en">Engineering Consulting</span></h3>
+                <p><span data-lang="de">Aktive Beratung zur Fertigungstechnologie bereits in Ihrer Entwicklungsphase – Kosten optimieren, Layoutfehler minimieren, mit Ihnen denken.</span><span data-lang="en">Active manufacturing technology consulting early in your development phase — optimizing costs, minimizing layout errors, and thinking alongside you.</span></p>
+                <div class="tag-group">
+                    <span class="tag">Kostenoptimierung</span>
+                    <span class="tag">DFM-Feedback</span>
+                    <span class="tag">Layout-Prüfung</span>
                 </div>
             </div>
         </div>
@@ -2921,7 +3172,7 @@
 <!-- ░░ SECTION: FAQ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <section class="section section--alt" aria-labelledby="faq-heading" style="background:var(--surface);">
     <div class="container">
-        <div style="text-align:center; margin-bottom:48px;">
+        <div style="text-align:center; margin-bottom:40px;">
             <span class="section-label">
                 <span data-lang="de">Häufig gestellte Fragen</span>
                 <span data-lang="en">Frequently Asked Questions</span>
@@ -2930,7 +3181,7 @@
                 <span data-lang="de">Alles, was Sie wissen müssen</span>
                 <span data-lang="en">Everything You Need to Know</span>
             </h2>
-            <p style="font-size:16px; color:var(--muted); max-width:600px; margin:0 auto;">
+            <p style="font-size:15px; color:var(--muted); max-width:600px; margin:0 auto;">
                 <span data-lang="de">Schnelle Antworten auf die häufigsten Fragen zu unseren Dienstleistungen und Prozessen</span>
                 <span data-lang="en">Quick answers to the most common questions about our services and processes</span>
             </p>
@@ -3002,18 +3253,18 @@
     </div>
 </section>
 
-<!-- ░░ GET A QUOTE BANNER ░░░░░░░░░░░░░ -->
-<section class="cta-banner" style="background:linear-gradient(135deg, #0E5C5D 0%, #071a1c 100%); padding:60px 0; text-align:center; color:#fff;">
+<!-- ░░ GET A QUOTE BANNER ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<section class="cta-banner" style="background:linear-gradient(135deg, #0E5C5D 0%, #071a1c 100%); padding:50px 0; text-align:center; color:#fff;">
     <div class="container">
-        <h2 style="font-family:'Sora',sans-serif; font-size:clamp(26px,4vw,38px); font-weight:800; margin-bottom:12px;">
+        <h2 style="font-family:'Sora',sans-serif; font-size:clamp(24px,4vw,38px); font-weight:800; margin-bottom:12px;">
             <span data-lang="de">Bereit, Ihr Projekt zu starten?</span>
             <span data-lang="en">Ready to start your project?</span>
         </h2>
-        <p style="font-size:18px; opacity:.85; max-width:560px; margin:0 auto 32px;">
+        <p style="font-size:clamp(15px,1.6vw,18px); opacity:.85; max-width:560px; margin:0 auto 28px;">
             <span data-lang="de">Senden Sie uns Ihre Gerber-Dateien, BOM oder auch nur eine kurze Skizze. Sie erhalten innerhalb von 24 Stunden eine persönliche Antwort von Rainer.</span>
             <span data-lang="en">Send us your Gerber, BOM, or even a quick sketch. You'll get a personal reply from Rainer within 24 hours.</span>
         </p>
-        <button onclick="openModal('quote-modal')" class="btn-white" style="display:inline-block; background:#fff; color:#071a1c; padding:15px 36px; border-radius:var(--radius-md); font-size:16px; font-weight:700; border:none; box-shadow:0 4px 20px rgba(0,0,0,.4); transition:transform var(--transition), box-shadow var(--transition); cursor:pointer;">
+        <button onclick="openModal('quote-modal')" class="btn-white" style="display:inline-block; background:#fff; color:#071a1c; padding:14px 32px; border-radius:var(--radius-md); font-size:15px; font-weight:700; border:none; box-shadow:0 4px 20px rgba(0,0,0,.4); transition:transform var(--transition), box-shadow var(--transition); cursor:pointer;">
             <span data-lang="de">Kostenloses Angebot anfordern →</span>
             <span data-lang="en">Request Your Free Quote →</span>
         </button>
@@ -3029,10 +3280,10 @@
             <div>
                 <div class="footer-brand">Moster <span>SMD</span></div>
                 <p class="footer-desc">
-                    <span data-lang="de">Hochpräzise SMD-Bestückung & Leiterplattenfertigung. Hergestellt in Deutschland — Niefern, Baden-Württemberg seit 30+ Jahren.</span>
-                    <span data-lang="en">High-precision SMD assembly & PCB manufacturing. Made in Germany — Niefern, Baden-Württemberg since 30+ years.</span>
+                    <span data-lang="de">Hochpräzise SMD-Bestückung &amp; Leiterplattenfertigung. Hergestellt in Deutschland — Niefern, Baden-Württemberg seit 30+ Jahren.</span>
+                    <span data-lang="en">High-precision SMD assembly &amp; PCB manufacturing. Made in Germany — Niefern, Baden-Württemberg since 30+ years.</span>
                 </p>
-                <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+                <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1);">
                     <div style="display:flex; align-items:center;">
                         <div style="position:relative; display:inline-block;">
                             <select id="language-select" onchange="setLang(this.value)" aria-label="Select language">
@@ -3081,7 +3332,7 @@
     // 1. SUPABASE CONFIG – Replace with your own credentials
     // ──────────────────────────────────────────────────────────
     const SUPABASE_URL = ''; // your project URL
-    const SUPABASE_ANON_KEY =''; // your anon key
+    const SUPABASE_ANON_KEY = ''; // your anon key
     const STORAGE_BUCKET = 'videos'; // bucket name for video uploads
     const TABLE_NAME = 'quote_requests'; // table name
 
@@ -3098,7 +3349,6 @@
         }
     } catch (err) {
         console.error('Failed to initialize Supabase:', err);
-        // We'll continue without supabase, but show a warning when submitting.
     }
 
     // ──────────────────────────────────────────────────────────
@@ -3108,11 +3358,11 @@
     var totalWizardSteps = 4;
     var wizardAnswers = {};
     var wizardProgress = [25, 50, 75, 100];
-    var selectedVideoFile = null; // stores the video file for upload
+    var selectedVideoFile = null;
     var isSubmitting = false;
 
     // ──────────────────────────────────────────────────────────
-    // 4. MODAL CONTROLS (these must be global)
+    // 4. MODAL CONTROLS (global)
     // ──────────────────────────────────────────────────────────
     window.openModal = function(modalId) {
         var modal = document.getElementById(modalId);
@@ -3335,13 +3585,11 @@
         }
 
         try {
-            // 1. Gather form data
             var fullName = document.getElementById('name-modal').value.trim();
             var company = document.getElementById('company-modal').value.trim();
             var email = document.getElementById('email-modal').value.trim();
             var phone = document.getElementById('phone-modal').value.trim();
 
-            // 2. Build wizard answers object
             var answersObj = {};
             for (var i = 1; i <= 4; i++) {
                 var stepId = 'wizard-step-' + i;
@@ -3352,7 +3600,6 @@
                 }
             }
 
-            // 3. Upload video to Supabase (if selected and supabase is available)
             var videoUrl = null;
             var statusEl = document.getElementById('video-upload-status-modal');
 
@@ -3390,9 +3637,7 @@
                     var { data: urlData } = supabaseClient.storage
                         .from(STORAGE_BUCKET)
                         .getPublicUrl(filePath);
-
                     videoUrl = urlData.publicUrl || null;
-
                     if (statusEl) {
                         statusEl.style.display = 'block';
                         statusEl.className = 'upload-status success';
@@ -3402,7 +3647,6 @@
                     }
                 }
             } else if (selectedVideoFile && !supabaseClient) {
-                // Supabase not available – warn but continue
                 if (statusEl) {
                     statusEl.style.display = 'block';
                     statusEl.className = 'upload-status error';
@@ -3416,7 +3660,6 @@
                 }
             }
 
-            // 4. Insert into Supabase table (if client available)
             if (supabaseClient) {
                 var record = {
                     full_name: fullName,
@@ -3438,12 +3681,9 @@
                 }
                 console.log('Record inserted:', insertData);
             } else {
-                // Fallback – just log
                 console.warn('Supabase client not available. Data not saved.');
-                // Still show success to the user, but warn in console.
             }
 
-            // 5. Success!
             closeModal('quote-modal');
 
             var ty = document.getElementById('thank-you');
@@ -3532,10 +3772,17 @@
     window.openVideoModal = function() {
         var modal = document.getElementById('videoModal');
         if (modal) modal.classList.add('open');
+        var video = document.getElementById('modalVideo');
+        if (video) {
+            video.load();
+            video.play().catch(function() {});
+        }
     };
 
     window.closeVideoModal = function(event) {
-        if (event && event.target !== document.getElementById('videoModal')) return;
+        if (event && event.target !== document.getElementById('videoModal') && event.target.closest) {
+            if (event.target.closest('.video-modal-inner')) return;
+        }
         var modal = document.getElementById('videoModal');
         if (modal) modal.classList.remove('open');
         var video = document.getElementById('modalVideo');
@@ -3554,7 +3801,7 @@
 
         if (isOpen) {
             content.style.maxHeight = '0';
-            content.style.padding = '0 24px';
+            content.style.padding = '0 20px';
             icon.textContent = '+';
             icon.style.transform = 'rotate(0deg)';
         } else {
@@ -3565,7 +3812,7 @@
                     var otherIcon = item.querySelector('.faq-icon');
                     if (otherContent) {
                         otherContent.style.maxHeight = '0';
-                        otherContent.style.padding = '0 24px';
+                        otherContent.style.padding = '0 20px';
                     }
                     if (otherIcon) {
                         otherIcon.textContent = '+';
@@ -3575,7 +3822,7 @@
             });
 
             content.style.maxHeight = content.scrollHeight + 'px';
-            content.style.padding = '0 24px';
+            content.style.padding = '0 20px';
             icon.textContent = '−';
             icon.style.transform = 'rotate(180deg)';
         }
@@ -3752,7 +3999,7 @@
             var icon = item.querySelector('.faq-icon');
             if (content) {
                 content.style.maxHeight = '0';
-                content.style.padding = '0 24px';
+                content.style.padding = '0 20px';
             }
             if (icon) {
                 icon.textContent = '+';
@@ -3760,34 +4007,6 @@
             }
         });
     });
-
-    // ─── TABLE CREATION SQL (for reference) ──────────────────
-    // Run this in your Supabase SQL editor:
-    //
-    // CREATE TABLE quote_requests (
-    //     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    //     full_name TEXT NOT NULL,
-    //     company TEXT NOT NULL,
-    //     email TEXT NOT NULL,
-    //     phone TEXT,
-    //     file_url TEXT,
-    //     wizard_answers JSONB,
-    //     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-    // );
-    //
-    // ALTER TABLE quote_requests ENABLE ROW LEVEL SECURITY;
-    // CREATE POLICY "Allow insert for everyone" ON quote_requests
-    //     FOR INSERT WITH CHECK (true);
-    // CREATE POLICY "Allow select for authenticated" ON quote_requests
-    //     FOR SELECT USING (auth.role() = 'authenticated');
-    //
-    // -- Storage bucket: videos (public)
-    // -- Policies for uploads and reads
-    // CREATE POLICY "Allow public uploads" ON storage.objects
-    //     FOR INSERT WITH CHECK (bucket_id = 'videos');
-    // CREATE POLICY "Allow public reads" ON storage.objects
-    //     FOR SELECT USING (bucket_id = 'videos');
-    // ──────────────────────────────────────────────────────────
 </script>
 
 </body>
